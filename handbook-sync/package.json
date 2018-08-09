@@ -1,4 +1,7 @@
 {
   "name": "handbook-sync",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "got": "^9.0.0"
+  }
 }
