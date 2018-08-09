@@ -14,13 +14,9 @@ exports.handbookSync = async (req, res) => {
       commit: { sha: parentSha }
     } = (await client.get('/repos/suncoast-devs/web/branches/master')).body
 
-    console.log(parentSha)
-
     const {
       commit: { sha: targetSha }
     } = (await client.get('/repos/suncoast-devs/handbook/branches/master')).body
-
-    console.log(targetSha)
 
     const res = await client.post('/repos/suncoast-devs/web/git/trees', {
       body: {
@@ -38,8 +34,6 @@ exports.handbookSync = async (req, res) => {
 
     const { sha: treeSha } = res.body
 
-    console.log(treeSha)
-
     const { sha: commitSha } = (await client.post('/repos/suncoast-devs/web/git/commits', {
       body: {
         message: 'Synchronize Handbook',
@@ -48,15 +42,13 @@ exports.handbookSync = async (req, res) => {
       }
     })).body
 
-    console.log(commitSha)
-
     await client.patch('/repos/suncoast-devs/web/git/refs/heads/master', {
       body: {
         sha: commitSha
       }
     })
 
-    console.log('OK')
+    res.status(200).end()
   } catch (err) {
     console.error(err)
   }
