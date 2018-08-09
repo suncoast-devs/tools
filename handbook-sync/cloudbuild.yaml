@@ -5,7 +5,7 @@ steps:
   - functions
   - deploy
   - handbook-sync
-  - --runtime nodejs8
+  - --runtime=nodejs8
   - --trigger-http
   - --source=.
   - --entry-point=handbookSync
