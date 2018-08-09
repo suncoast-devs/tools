@@ -5,7 +5,9 @@ steps:
   - functions
   - deploy
   - handbook-sync
-  - --runtime=nodejs8
-  - --trigger-http
-  - --source=.
+  - --region=us-east1
   - --entry-point=handbookSync
+  - --memory=128MB
+  - --runtime=nodejs8
+  - --source=.
+  - --trigger-http
