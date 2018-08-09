@@ -9,5 +9,5 @@ steps:
   - --entry-point=handbookSync
   - --memory=128MB
   - --runtime=nodejs8
-  - --source=.
+  - --source=./handbook-sync
   - --trigger-http
