@@ -23,7 +23,7 @@ exports.handbookSync = async (req, res) => {
         base_tree: parentSha,
         tree: [
           {
-            path: 'data/handbook',
+            path: 'src/pages/handbook',
             mode: '160000',
             type: 'commit',
             sha: targetSha
